@@ -38,6 +38,16 @@ function getData() {
         url: '/people',
         success: function(data) {
             console.log(data);
+
+            $.each(data, function(i, person) {
+                $('#container').append('<div class="person"></div>');
+                var $el = $('#container').children().last();
+                $el.append('<h2>' + person.name + '</h2>');
+                $el.append('<p>' + person.address + '</p>');
+                $el.append('<p>' + person.city + '</p>');
+                $el.append('<p>' + person.state + '</p>');
+                $el.append('<p>' + person.zip_code + '</p>');
+            });
         }
     });
 }
